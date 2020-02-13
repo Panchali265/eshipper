@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eshipperApp.webNotification.home.title">Web Notifications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-web-notification" [routerLink]="['/web-notification/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="eshipperApp.webNotification.home.createLabel">
+            Create a new Web Notification
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="webNotifications?.length === 0">
+        <span jhiTranslate="eshipperApp.webNotification.home.notFound">No webNotifications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="webNotifications?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="url"><span jhiTranslate="eshipperApp.webNotification.url">Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isRead"><span jhiTranslate="eshipperApp.webNotification.isRead">Is Read</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="webMap"><span jhiTranslate="eshipperApp.webNotification.webMap">Web Map</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notificationTemplateId"><span jhiTranslate="eshipperApp.webNotification.notificationTemplate">Notification Template</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdById"><span jhiTranslate="eshipperApp.webNotification.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="toUserId"><span jhiTranslate="eshipperApp.webNotification.toUser">To User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let webNotification of webNotifications ;trackBy: trackId">
+                    <td><a [routerLink]="['/web-notification', webNotification.id, 'view']">{{ webNotification.id }}</a></td>
+                    <td>{{ webNotification.url }}</td>
+                    <td>{{ webNotification.isRead }}</td>
+                    <td>{{ webNotification.webMap }}</td>
+                    <td>
+                        <div *ngIf="webNotification.notificationTemplateId">
+                            <a [routerLink]="['/notification-template', webNotification.notificationTemplateId , 'view']" >{{ webNotification.notificationTemplateId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="webNotification.createdById">
+                            <a [routerLink]="['/user-1', webNotification.createdById , 'view']" >{{ webNotification.createdById }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="webNotification.toUserId">
+                            <a [routerLink]="['/user-1', webNotification.toUserId , 'view']" >{{ webNotification.toUserId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/web-notification', webNotification.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/web-notification', webNotification.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(webNotification)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="webNotifications?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

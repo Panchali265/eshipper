@@ -1,0 +1,38 @@
+{
+    "name": "NotificationType",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enumName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "notificationTemplate",
+            "otherEntityRelationshipName": "notificationType",
+            "relationshipName": "notificationTemplate"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "notificationCategory",
+            "otherEntityRelationshipName": "notificationType",
+            "relationshipName": "notificationCategory",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213102500",
+    "entityTableName": "notification_type",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

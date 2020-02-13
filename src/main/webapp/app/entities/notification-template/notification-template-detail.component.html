@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notificationTemplate">
+            <h2><span jhiTranslate="eshipperApp.notificationTemplate.detail.title">Notification Template</span> {{ notificationTemplate.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.notificationTemplate.subject">Subject</span></dt>
+                <dd>
+                    <span>{{ notificationTemplate.subject }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.notificationTemplate.description">Description</span></dt>
+                <dd>
+                    <span>{{ notificationTemplate.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.notificationTemplate.notificationMethod">Notification Method</span></dt>
+                <dd>
+                    <div *ngIf="notificationTemplate.notificationMethodId">
+                        <a [routerLink]="['/notification-method', notificationTemplate.notificationMethodId, 'view']">{{ notificationTemplate.notificationMethodId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.notificationTemplate.notificationType">Notification Type</span></dt>
+                <dd>
+                    <div *ngIf="notificationTemplate.notificationTypeId">
+                        <a [routerLink]="['/notification-type', notificationTemplate.notificationTypeId, 'view']">{{ notificationTemplate.notificationTypeId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notification-template', notificationTemplate.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notificationType">
+            <h2><span jhiTranslate="eshipperApp.notificationType.detail.title">Notification Type</span> {{ notificationType.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.notificationType.name">Name</span></dt>
+                <dd>
+                    <span>{{ notificationType.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.notificationType.enumName">Enum Name</span></dt>
+                <dd>
+                    <span>{{ notificationType.enumName }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.notificationType.notificationCategory">Notification Category</span></dt>
+                <dd>
+                    <div *ngIf="notificationType.notificationCategoryId">
+                        <a [routerLink]="['/notification-category', notificationType.notificationCategoryId, 'view']">{{ notificationType.notificationCategoryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notification-type', notificationType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

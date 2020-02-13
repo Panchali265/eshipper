@@ -1,0 +1,24 @@
+{
+  "eshipperApp": {
+    "notificationCategory": {
+      "home": {
+        "title": "Notification Categories",
+        "createLabel": "Create a new Notification Category",
+        "createOrEditLabel": "Create or edit a Notification Category",
+        "notFound": "No Notification Categories found"
+      },
+      "created": "A new Notification Category is created with identifier {{ param }}",
+      "updated": "A Notification Category is updated with identifier {{ param }}",
+      "deleted": "A Notification Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Notification Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Notification Category"
+      },
+      "name": "Name",
+      "role": "Role",
+      "notificationType": "Notification Type"
+    }
+  }
+}

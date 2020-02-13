@@ -1,0 +1,25 @@
+{
+  "eshipperApp": {
+    "userNotificationSettings": {
+      "home": {
+        "title": "User Notification Settings",
+        "createLabel": "Create a new User Notification Settings",
+        "createOrEditLabel": "Create or edit a User Notification Settings",
+        "notFound": "No User Notification Settings found"
+      },
+      "created": "A new User Notification Settings is created with identifier {{ param }}",
+      "updated": "A User Notification Settings is updated with identifier {{ param }}",
+      "deleted": "A User Notification Settings is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Notification Settings {{ id }}?"
+      },
+      "detail": {
+        "title": "User Notification Settings"
+      },
+      "web": "Web",
+      "email": "Email",
+      "configurableMap": "Configurable Map",
+      "user": "User"
+    }
+  }
+}

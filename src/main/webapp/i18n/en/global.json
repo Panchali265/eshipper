@@ -7,6 +7,14 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "user1": "User 1",
+        "notificationCategory": "Notification Category",
+        "notificationType": "Notification Type",
+        "notificationMethod": "Notification Method",
+        "notificationTemplate": "Notification Template",
+        "emailNotification": "Email Notification",
+        "webNotification": "Web Notification",
+        "userNotificationSettings": "User Notification Settings",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

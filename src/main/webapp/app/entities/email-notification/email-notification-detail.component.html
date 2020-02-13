@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emailNotification">
+            <h2><span jhiTranslate="eshipperApp.emailNotification.detail.title">Email Notification</span> {{ emailNotification.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.emailNotification.toEmail">To Email</span></dt>
+                <dd>
+                    <span>{{ emailNotification.toEmail }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.emailNotification.emailMap">Email Map</span></dt>
+                <dd>
+                    <span>{{ emailNotification.emailMap }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.emailNotification.notificationTemplate">Notification Template</span></dt>
+                <dd>
+                    <div *ngIf="emailNotification.notificationTemplateId">
+                        <a [routerLink]="['/notification-template', emailNotification.notificationTemplateId, 'view']">{{ emailNotification.notificationTemplateId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.emailNotification.createdBy">Created By</span></dt>
+                <dd>
+                    <div *ngIf="emailNotification.createdById">
+                        <a [routerLink]="['/user-1', emailNotification.createdById, 'view']">{{ emailNotification.createdById }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.emailNotification.toUser">To User</span></dt>
+                <dd>
+                    <div *ngIf="emailNotification.toUserId">
+                        <a [routerLink]="['/user-1', emailNotification.toUserId, 'view']">{{ emailNotification.toUserId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/email-notification', emailNotification.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

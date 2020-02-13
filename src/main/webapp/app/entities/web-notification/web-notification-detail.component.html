@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="webNotification">
+            <h2><span jhiTranslate="eshipperApp.webNotification.detail.title">Web Notification</span> {{ webNotification.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.webNotification.url">Url</span></dt>
+                <dd>
+                    <span>{{ webNotification.url }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.webNotification.isRead">Is Read</span></dt>
+                <dd>
+                    <span>{{ webNotification.isRead }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.webNotification.webMap">Web Map</span></dt>
+                <dd>
+                    <span>{{ webNotification.webMap }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.webNotification.notificationTemplate">Notification Template</span></dt>
+                <dd>
+                    <div *ngIf="webNotification.notificationTemplateId">
+                        <a [routerLink]="['/notification-template', webNotification.notificationTemplateId, 'view']">{{ webNotification.notificationTemplateId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.webNotification.createdBy">Created By</span></dt>
+                <dd>
+                    <div *ngIf="webNotification.createdById">
+                        <a [routerLink]="['/user-1', webNotification.createdById, 'view']">{{ webNotification.createdById }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.webNotification.toUser">To User</span></dt>
+                <dd>
+                    <div *ngIf="webNotification.toUserId">
+                        <a [routerLink]="['/user-1', webNotification.toUserId, 'view']">{{ webNotification.toUserId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/web-notification', webNotification.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

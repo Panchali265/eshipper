@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity EmailNotification.
+    -->
+    <changeSet id="20200213102800-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="notification_template_id"
+                                 baseTableName="email_notification"
+                                 constraintName="fk_email_notification_notification_template_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notification_template"/>
+
+        <addForeignKeyConstraint baseColumnNames="created_by_id"
+                                 baseTableName="email_notification"
+                                 constraintName="fk_email_notification_created_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_1"/>
+
+        <addForeignKeyConstraint baseColumnNames="to_user_id"
+                                 baseTableName="email_notification"
+                                 constraintName="fk_email_notification_to_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_1"/>
+
+    </changeSet>
+</databaseChangeLog>

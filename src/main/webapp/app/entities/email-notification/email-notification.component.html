@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eshipperApp.emailNotification.home.title">Email Notifications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-email-notification" [routerLink]="['/email-notification/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="eshipperApp.emailNotification.home.createLabel">
+            Create a new Email Notification
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="emailNotifications?.length === 0">
+        <span jhiTranslate="eshipperApp.emailNotification.home.notFound">No emailNotifications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="emailNotifications?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eshipperApp.emailNotification.toEmail">To Email</span></th>
+                    <th scope="col" ><span jhiTranslate="eshipperApp.emailNotification.emailMap">Email Map</span></th>
+                    <th scope="col" ><span jhiTranslate="eshipperApp.emailNotification.notificationTemplate">Notification Template</span></th>
+                    <th scope="col" ><span jhiTranslate="eshipperApp.emailNotification.createdBy">Created By</span></th>
+                    <th scope="col" ><span jhiTranslate="eshipperApp.emailNotification.toUser">To User</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emailNotification of emailNotifications ;trackBy: trackId">
+                    <td><a [routerLink]="['/email-notification', emailNotification.id, 'view']">{{ emailNotification.id }}</a></td>
+                    <td>{{ emailNotification.toEmail }}</td>
+                    <td>{{ emailNotification.emailMap }}</td>
+                    <td>
+                        <div *ngIf="emailNotification.notificationTemplateId">
+                            <a [routerLink]="['/notification-template', emailNotification.notificationTemplateId , 'view']" >{{ emailNotification.notificationTemplateId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emailNotification.createdById">
+                            <a [routerLink]="['/user-1', emailNotification.createdById , 'view']" >{{ emailNotification.createdById }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emailNotification.toUserId">
+                            <a [routerLink]="['/user-1', emailNotification.toUserId , 'view']" >{{ emailNotification.toUserId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/email-notification', emailNotification.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/email-notification', emailNotification.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(emailNotification)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

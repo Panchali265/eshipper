@@ -1,0 +1,27 @@
+{
+  "eshipperApp": {
+    "webNotification": {
+      "home": {
+        "title": "Web Notifications",
+        "createLabel": "Create a new Web Notification",
+        "createOrEditLabel": "Create or edit a Web Notification",
+        "notFound": "No Web Notifications found"
+      },
+      "created": "A new Web Notification is created with identifier {{ param }}",
+      "updated": "A Web Notification is updated with identifier {{ param }}",
+      "deleted": "A Web Notification is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Web Notification {{ id }}?"
+      },
+      "detail": {
+        "title": "Web Notification"
+      },
+      "url": "Url",
+      "isRead": "Is Read",
+      "webMap": "Web Map",
+      "notificationTemplate": "Notification Template",
+      "createdBy": "Created By",
+      "toUser": "To User"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+    "name": "NotificationCategory",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "role",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "notificationType",
+            "otherEntityRelationshipName": "notificationCategory",
+            "relationshipName": "notificationType"
+        }
+    ],
+    "changelogDate": "20200213102400",
+    "entityTableName": "notification_category",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

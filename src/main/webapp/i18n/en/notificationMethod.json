@@ -1,0 +1,23 @@
+{
+  "eshipperApp": {
+    "notificationMethod": {
+      "home": {
+        "title": "Notification Methods",
+        "createLabel": "Create a new Notification Method",
+        "createOrEditLabel": "Create or edit a Notification Method",
+        "notFound": "No Notification Methods found"
+      },
+      "created": "A new Notification Method is created with identifier {{ param }}",
+      "updated": "A Notification Method is updated with identifier {{ param }}",
+      "deleted": "A Notification Method is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Notification Method {{ id }}?"
+      },
+      "detail": {
+        "title": "Notification Method"
+      },
+      "methodName": "Method Name",
+      "notificationTemplate": "Notification Template"
+    }
+  }
+}

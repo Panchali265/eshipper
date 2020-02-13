@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-notification-template-heading" jhiTranslate="eshipperApp.notificationTemplate.home.createOrEditLabel">Create or edit a Notification Template</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.notificationTemplate.subject" for="field_subject">Subject</label>
+                    <input type="text" class="form-control" name="subject" id="field_subject"
+                           formControlName="subject"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.notificationTemplate.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.notificationTemplate.notificationMethod" for="field_notificationMethod">Notification Method</label>
+                    <select class="form-control" id="field_notificationMethod" name="notificationMethod" formControlName="notificationMethodId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="notificationMethodOption.id" *ngFor="let notificationMethodOption of notificationmethods; trackBy: trackById">{{ notificationMethodOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.notificationTemplate.notificationType" for="field_notificationType">Notification Type</label>
+                    <select class="form-control" id="field_notificationType" name="notificationType" formControlName="notificationTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="notificationTypeOption.id" *ngFor="let notificationTypeOption of notificationtypes; trackBy: trackById">{{ notificationTypeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
