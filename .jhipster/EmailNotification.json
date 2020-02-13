@@ -1,0 +1,47 @@
+{
+    "name": "EmailNotification",
+    "fields": [
+        {
+            "fieldName": "toEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailMap",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "notificationTemplate",
+            "otherEntityRelationshipName": "emailNotification",
+            "relationshipName": "notificationTemplate",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user1",
+            "otherEntityRelationshipName": "emailNotification",
+            "relationshipName": "createdBy",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user1",
+            "otherEntityRelationshipName": "emailNotification",
+            "relationshipName": "toUser",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213102800",
+    "entityTableName": "email_notification",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

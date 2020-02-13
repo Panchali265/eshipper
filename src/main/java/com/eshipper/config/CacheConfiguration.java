@@ -42,6 +42,20 @@ public class CacheConfiguration {
             createCache(cm, com.eshipper.domain.User.class.getName());
             createCache(cm, com.eshipper.domain.Authority.class.getName());
             createCache(cm, com.eshipper.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.eshipper.domain.User1.class.getName());
+            createCache(cm, com.eshipper.domain.User1.class.getName() + ".webNotifications");
+            createCache(cm, com.eshipper.domain.User1.class.getName() + ".emailNotifications");
+            createCache(cm, com.eshipper.domain.User1.class.getName() + ".userNotificationSettings");
+            createCache(cm, com.eshipper.domain.NotificationCategory.class.getName());
+            createCache(cm, com.eshipper.domain.NotificationCategory.class.getName() + ".notificationTypes");
+            createCache(cm, com.eshipper.domain.NotificationType.class.getName());
+            createCache(cm, com.eshipper.domain.NotificationType.class.getName() + ".notificationTemplates");
+            createCache(cm, com.eshipper.domain.NotificationMethod.class.getName());
+            createCache(cm, com.eshipper.domain.NotificationMethod.class.getName() + ".notificationTemplates");
+            createCache(cm, com.eshipper.domain.NotificationTemplate.class.getName());
+            createCache(cm, com.eshipper.domain.EmailNotification.class.getName());
+            createCache(cm, com.eshipper.domain.WebNotification.class.getName());
+            createCache(cm, com.eshipper.domain.UserNotificationSettings.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

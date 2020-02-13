@@ -1,0 +1,36 @@
+{
+    "name": "UserNotificationSettings",
+    "fields": [
+        {
+            "fieldName": "web",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "configurableMap",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user1",
+            "otherEntityRelationshipName": "userNotificationSettings",
+            "relationshipName": "user",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213103000",
+    "entityTableName": "user_notification_settings",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

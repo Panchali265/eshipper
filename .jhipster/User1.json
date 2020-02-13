@@ -1,0 +1,46 @@
+{
+    "name": "User1",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "webNotification",
+            "otherEntityRelationshipName": "createdBy",
+            "relationshipName": "webNotification"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "webNotification",
+            "otherEntityRelationshipName": "toUser",
+            "relationshipName": "webNotification"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "emailNotification",
+            "otherEntityRelationshipName": "createdBy",
+            "relationshipName": "emailNotification"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "emailNotification",
+            "otherEntityRelationshipName": "toUser",
+            "relationshipName": "emailNotification"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "userNotificationSettings",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "userNotificationSettings"
+        }
+    ],
+    "changelogDate": "20200213102300",
+    "entityTableName": "user_1",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

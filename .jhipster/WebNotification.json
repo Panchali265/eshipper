@@ -1,0 +1,51 @@
+{
+    "name": "WebNotification",
+    "fields": [
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isRead",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "webMap",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "notificationTemplate",
+            "otherEntityRelationshipName": "webNotification",
+            "relationshipName": "notificationTemplate",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user1",
+            "otherEntityRelationshipName": "webNotification",
+            "relationshipName": "createdBy",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user1",
+            "otherEntityRelationshipName": "webNotification",
+            "relationshipName": "toUser",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213102900",
+    "entityTableName": "web_notification",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

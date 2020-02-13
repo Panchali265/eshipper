@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userNotificationSettings">
+            <h2><span jhiTranslate="eshipperApp.userNotificationSettings.detail.title">User Notification Settings</span> {{ userNotificationSettings.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.userNotificationSettings.web">Web</span></dt>
+                <dd>
+                    <span>{{ userNotificationSettings.web }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.userNotificationSettings.email">Email</span></dt>
+                <dd>
+                    <span>{{ userNotificationSettings.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.userNotificationSettings.configurableMap">Configurable Map</span></dt>
+                <dd>
+                    <span>{{ userNotificationSettings.configurableMap }}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.userNotificationSettings.user">User</span></dt>
+                <dd>
+                    <div *ngIf="userNotificationSettings.userId">
+                        <a [routerLink]="['/user-1', userNotificationSettings.userId, 'view']">{{ userNotificationSettings.userId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-notification-settings', userNotificationSettings.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

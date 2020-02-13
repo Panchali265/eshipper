@@ -1,0 +1,39 @@
+{
+    "name": "NotificationTemplate",
+    "fields": [
+        {
+            "fieldName": "subject",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "notificationMethod",
+            "otherEntityRelationshipName": "notificationTemplate",
+            "relationshipName": "notificationMethod",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "notificationType",
+            "otherEntityRelationshipName": "notificationTemplate",
+            "relationshipName": "notificationType",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213102700",
+    "entityTableName": "notification_template",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
