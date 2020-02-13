@@ -1,0 +1,58 @@
+entity User1{
+}
+
+entity NotificationCategory{ // Shipment,invoice, ecom, claims etc
+    name String,
+    role String
+}
+
+entity NotificationType{  // Shipment cancelled etc
+name String,
+enumName String
+}
+entity NotificationMethod{ // Email or web
+                methodName String
+}
+
+entity NotificationTemplate{
+                subject String,
+    description String
+    
+}
+entity EmailNotification{
+               toEmail String,
+    emailMap String
+}
+
+entity WebNotification{
+                url String,
+     isRead Boolean,
+     webMap String
+}
+
+entity UserNotificationSettings{
+                web Boolean,
+    email Boolean,
+    configurableMap String
+}
+
+relationship OneToMany{
+    User1 to WebNotification{createdBy},
+    User1 to WebNotification{toUser},
+    User1 to EmailNotification{createdBy},
+    User1 to EmailNotification{toUser},
+    NotificationMethod to NotificationTemplate{notificationMethod},
+    NotificationCategory  to NotificationType{notificationCategory},
+    NotificationType  to NotificationTemplate{notificationType}
+    User1 to UserNotificationSettings{user}
+}
+
+ relationship OneToOne{
+               EmailNotification{notificationTemplate} to NotificationTemplate,
+    WebNotification{notificationTemplate} to NotificationTemplate
+}
+
+service all with serviceImpl
+
+paginate WebNotification with pagination
+dto * with mapstruct 
